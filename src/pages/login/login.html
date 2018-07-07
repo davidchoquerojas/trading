@@ -5,34 +5,37 @@
   Ionic pages and navigation.
 -->
 <ion-content padding>
-  <ion-list>
-    <div class="img-login-logo">
-      <ion-img [width]="80" [height]="80" src="assets/imgs/logo.png"></ion-img>
-    </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <ion-item>
-      <ion-label stacked>Username</ion-label>
-      <ion-input type="text"></ion-input>
-    </ion-item>
-  
-    <ion-item>
-      <ion-label stacked>Password</ion-label>
-      <ion-input type="password"></ion-input>
-    </ion-item>
+  <form [formGroup]="formLogin" (ngSubmit)="signIn()">
+    <ion-list>
+      <div class="img-login-logo">
+        <ion-img [width]="80" [height]="80" src="assets/imgs/logo.png"></ion-img>
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <ion-item>
+        <ion-label floating>Correo Electrónico</ion-label>
+        <ion-input formControlName="email" name="email" type="text"></ion-input>
+        <!--<div *ngIf="formLogin.controls.email.errors && formLogin.controls.email.dirty" class="danger" padding> Email jadksjkdj </div>-->
+      </ion-item>
+    
+      <ion-item>
+        <ion-label floating>Contraseña</ion-label>
+        <ion-input formControlName="password" name="password" type="password"></ion-input>
+      </ion-item>
 
-    <ion-item>
-      <button ion-button full (click)="signin()">Entrar</button>
-    </ion-item>
+      <ion-item>
+        <button ion-button full type="submit" [disabled]="!formLogin.valid">Entrar</button>
+      </ion-item>
 
-    <ion-item>
-      <a href="#">Olvidé mi contraseña</a>
-    </ion-item>
+      <ion-item>
+        <a href="#">Olvidé mi contraseña</a>
+      </ion-item>
 
-    <ion-item>
-      <a href="#">Registrarme</a>
-    </ion-item>
-  </ion-list>
+      <ion-item>
+        <a href="#">Registrarme</a>
+      </ion-item>
+    </ion-list>
+  </form>
 </ion-content>
