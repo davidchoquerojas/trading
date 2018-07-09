@@ -1,0 +1,58 @@
+<!--
+  Generated template for the RegisterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="danger">
+    <ion-title>Registrarme</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="formRegister" (ngSubmit)="register()">
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Nombres</ion-label>
+        <ion-input formControlName="firstname" name="firstname" type="text"></ion-input>
+        <div *ngIf="formRegister.controls.firstname.errors && formRegister.controls.firstname.dirty" color="danger" padding> Email jadksjkdj </div>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Apellidos</ion-label>
+        <ion-input formControlName="lastname" name="firstname" type="text"></ion-input>
+        <div *ngIf="formRegister.controls.lastname.errors && formRegister.controls.lastname.dirty" color="danger" padding> Email jadksjkdj </div>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Correo Electrónico</ion-label>
+        <ion-input formControlName="email" name="email" type="email"></ion-input>
+        <div *ngIf="formRegister.controls.email.errors && formRegister.controls.email.dirty" color="danger" padding> Email jadksjkdj </div>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label floating>Contraseña</ion-label>
+        <ion-input formControlName="password" name="password" type="password"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Confirmar Contraseña</ion-label>
+        <ion-input formControlName="re_password" name="re_password" type="password"></ion-input>
+      </ion-item>
+
+
+      <div class="padding-left box-button">
+        <button ion-button full type="submit" [disabled]="!formRegister.valid">Registrarme</button>
+      </div>
+
+      <div class="padding-left box-button">
+        <button ion-button full color="facebook" type="submit" [disabled]="!formRegister.valid">Facebook</button>
+      </div>
+
+      <div class="padding-left box-button">
+          <button ion-button full color="google" type="submit" [disabled]="!formRegister.valid">Google</button>
+        </div>
+    </ion-list>
+  </form>
+</ion-content>
